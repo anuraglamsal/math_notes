@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\usepackage[left=3cm, right=3cm, top=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+\title{Problem Set 1}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\section*{2.1 Coin Flips}
+\subsection*{(a)} 
+\begin{quote} 
+	The inputs to the random variable $X$ mentioned in the question are in the following form:
+
+	\begin{center}
+		H, TH, TTH, TTTH, .......
+	\end{center}
+
+	These inputs represent sequences of coin tosses performed until an H is observed. $X$ outputs the length of a given such sequence. For instance, the outputs corresponding to the above sequences are:
+	\begin{center}
+		1, 2, 3, 4, .......
+	\end{center}
+	Because a sequence of coin tosses are independent, the probability for this random variable can be defined as:
+	\begin{equation}
+		P(X=x) = \frac{1}{2^{x}}
+	\end{equation}
+	where $x$ is the number of tosses performed to get an H. Remember that for a fair coin, the probability of getting a head is the same as the probability of getting a tail i.e. $\frac{1}{2}$. And as the tosses are independent, you just multiply the probabilites of each individual outcome to get the probability of a whole sequence. 
+
+	As the entropy is to be calculated in bits, logarithm of base 2 will be used. Now, we know:
+	\begin{align*}
+		H(X) &= - \sum_{x=1}^{\infty}P(X=x)log_2(P(X=x)) \\
+		     &= - \sum_{x=1}^{\infty}\frac{1}{2^x}log_2(\frac{1}{2^x})\hspace{2cm}[(1)] \\
+		     &= \sum_{x=1}^{\infty}\frac{1}{2^x}log_2(2^x)\hspace{2cm}[log(\frac{1}{x}) = -log(x)] \\
+		     &= \sum_{x=1}^{\infty}\frac{x}{2^x}log_2(2)\hspace{2cm}[log(a^x) = xlog(a)] \\
+		     &= \sum_{x=1}^{\infty}\frac{x}{2^x}\hspace{2cm}[2^1 = 2 \implies log_2(2) = 1] \\
+		     &= 2\hspace{2cm} 
+	\end{align*}
+	You can show that the series $\sum_{x=1}^{\infty}\frac{x}{2^x}$ converges to 2. Look at the link \href{https://math.stackexchange.com/questions/1102135/sum-sum-x-0-infty-fracx2x}{here}.
+\end{quote}
+
+\end{document}
